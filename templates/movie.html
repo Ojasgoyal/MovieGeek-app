@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block title %}MovieGeek:{{moviedata["title"]}}{% endblock title %}
+
+{% block body %}
+
+<div class = "movie-page"  >
+    <img  class = "backdrop" src="https://image.tmdb.org/t/p/original{{ moviedata.backdrop_path }}" alt="{{ moviedata.title }}" >
+    <div>
+        <div class = "movie-card">
+            <img class = "movie-poster" src="https://image.tmdb.org/t/p/original{{ moviedata.poster_path }}" alt="{{ moviedata.title }}">
+            <div class="movie-details">
+                <h1>{{ moviedata["title"] }}</h1>
+                <h5>{{ moviedata["tagline"] }}</h5>
+                <p>{{ moviedata["overview"] }}</p>
+                <p>Release Date: {{ formatted_date }}</p>
+                <p>Rating: {{ moviedata["vote_average"]|round(1) }}</p>
+                <p>Runtime: {{ moviedata["runtime"] }} minutes</p>
+                <p>Genres: 
+                    {% for genre in moviedata["genres"] %}
+                    {{ genre["name"] }}
+                    {% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p>Produced By: 
+                    {% for producer in moviedata["production_companies"] %}
+                    {{ producer["name"] }},
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        {% if moviedata["id"] in movie_ids %}
+            <div style = "display:flex; justify-content:center;">
+                <form action="/movie/{{moviedata["id"]}}" method = "post">
+                    <input type="hidden" name="movie_id" value="{{ moviedata["id"] }}">
+                    <input type="hidden" name="action" value="remove">
+                    <button class="btn btn-primary" type="submit">Remove From Profile</button>
+                </form>
+            </div>
+        {% else %}
+            <div style = "display:flex; justify-content:center;">
+                <form action="/movie/{{moviedata["id"]}}" method = "post">
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="movie_id" value="{{ moviedata["id"] }}">
+                    <input type="hidden" name="title" value="{{ moviedata["title"] }}">
+                    <input type="hidden" name="poster_path" value="{{ moviedata["poster_path"] }}">
+                    <input type="hidden" name="year" value="{{ moviedata["release_date"][:4] }}">
+                    <input type="hidden" name="genres" value="{% for genre in moviedata["genres"] %}{{ genre["name"] }}{% if not loop.last %}, {% endif %}{% endfor %}">
+                    <button class="btn btn-primary" type="submit">Add to Profile</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<div class = "credits">
+    <div class = "actors">
+        <h3>Actors</h3>
+        {% for person in actors %}
+        <a href="/person/{{ person["id"] }}">
+            <div class = "actor">
+                <img src="https://image.tmdb.org/t/p/original/{{person["profile_path"]}}" alt="{{person["name"]}}">
+                <h5>{{ person["name"] }}</h5>
+                <h6>{{ person["Character"] }}</h6>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class = "directors">
+        <h3>Directors</h3>
+        {% for person in director %}
+        <a href="/person/{{ person["id"] }}">
+            <div class = "director">
+                <img src="https://image.tmdb.org/t/p/original/{{person["profile_path"]}}" alt= "{{person["name"]}}">
+                <h5>{{ person["name"] }}</h5>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class = "producers">
+        <h3>Producers</h3>
+        {% for person in producer %}
+        <a href="/person/{{ person["id"] }}">
+            <div class = "producer">
+                <img src="https://image.tmdb.org/t/p/original/{{person["profile_path"]}}" alt= "{{person["name"]}}">
+                <h5>{{ person["name"] }}</h5>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class = "writers">
+        <h3>Writers</h3>
+        {% for person in writer %}
+        <a href="/person/{{ person["id"] }}">
+            <div class = "writer">
+                <img src="https://image.tmdb.org/t/p/original/{{person["profile_path"]}}" alt= "{{person["name"]}}">
+                <h5>{{ person["name"] }}</h5>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

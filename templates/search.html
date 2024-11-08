@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}MovieGeek:Search{% endblock title %}
+
+{% block body %}
+<div class="search-page">
+    <form method="GET" class="search-form">
+            <input type="text" name="query" class="movie-input" autofocus placeholder="Search for movies..." required>
+            <button class="btn btn-outline-dark " type="submit">Search</button>
+    </form>
+    
+    {% if movies %}
+        <div class = "movies">
+            {% for movie in movies %}
+            <a href= "/movie/{{movie["id"]}}">
+                <div class="movie">
+                    <img src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
+                    <h6>{{movie["title"]}} {{movie["release_date"][:4]}}</h6>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    
+</div>
+
+{% endblock body %}

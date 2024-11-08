@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}MovieGeek:Search{% endblock title %}
+
+{% block body %}
+<div class="search-page">
+    <form method="GET" class="search-form">
+            <input type="text" name="query" class="movie-input" autofocus placeholder="Search for person..." required>
+            <button class="btn btn-outline-dark " type="submit">Search</button>
+    </form>
+    
+    {% if people %}
+        <div class = "movies">
+            {% for person in people %}
+            <a href= "/person/{{person["id"]}}">
+                <div class="movie">
+                    <img src="https://image.tmdb.org/t/p/original{{ person.profile_path }}" class="card-img-top" alt="{{ person.name }}">
+                    <h6>{{ person["name"] }}</h6>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    
+</div>
+
+{% endblock body %}

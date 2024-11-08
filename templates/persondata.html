@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}MovieGeek:{{persondata["name"]}}{% endblock title %}
+
+{% block body %}
+
+<div class = "movie-page"  >
+    <img  class = "backdrop" src="https://image.tmdb.org/t/p/original{{ persondata.profile_path }}" alt="{{ persondata.name }}" >
+    <div>
+        <div class = "movie-card">
+            <img class = "movie-poster" src="https://image.tmdb.org/t/p/original{{ persondata.profile_path }}" alt="{{ persondata.name }}">
+            <div class="movie-details">
+                <h1>{{ persondata["name"] }}</h1>
+                <p>{{ persondata["biography"][0:410] }}</p>
+                <p>Birthday: {{ persondata["birthday"] }}</p>
+                <p>Place of Birth: {{ persondata["place_of_birth"] }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class = "moviecredits">
+    <h3>Movies:</h3>
+    <div class = "creditmovies">
+        {% for movie in movies %}
+        {% if movie["poster_path"] %}
+        <a href="/movie/{{movie["id"]}}">
+            <div class = "credit">
+                <img src="https://image.tmdb.org/t/p/original/{{movie["poster_path"]}}" alt="{{movie["title"]}}">
+                <h5>{{ movie["title"] }}</h5>
+            </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

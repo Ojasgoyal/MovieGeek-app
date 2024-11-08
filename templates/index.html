@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}MovieGeek{% endblock title %}
+
+{% block body %}
+    <div class = "landing ">
+        <img class = "bg-image img-fluid" src = "{{ url_for('static', filename = 'bgimage.webp') }}" alt = "Welcome" class = "welcome-img">
+        <div class = "landing-text">
+            <h1 class = "welcome fadein">Welcome to MovieGeek</h1>
+            <p class = "about fadein">MovieGeek is the ultimate platform for movie lovers. We're passionate about bringing film enthusiasts together and helping you discover next movie to watch.</p>
+            <div class="buttons fadein">
+                <a href="/signup" class="btn btn-light btn-lg">Sign up</a>
+                <a href="/login" class="btn btn-light btn-lg">Sign in</a>
+            </div>            
+        </div>
+    </div>
+
+    <div class="feature-section">
+        <h2 class = "feat">Features</h2>
+        <div class = "features">
+            <div class="feature">
+                <h3>Search</h3>
+                <p>Search for your favorite movies and TV shows.</p>
+            </div>
+            <div class="feature">
+                <h3>Movie Card</h3>
+                <p>Add movies you have watched to your own profile card</p>
+            </div>
+            <div class="feature">
+                <h3>Community</h3>
+                <p>Browse community to see the movie catalogue of people</p>
+            </div>
+        </div>
+    </div>  
+{% endblock body %}

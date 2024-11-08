@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins" , sans-serif;
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.custom-navbar {
+    background-color: #e3f2fd;
+    color:#000 !important;
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-toggler {
+    outline: none;
+    border: none;
+}
+
+.landing{
+    color:rgb(69, 78, 90);
+    background-color: rgb(248 250 252);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.fadein{
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+.bg-image{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    opacity: 0.3;
+    object-fit: cover;
+    object-position: center;
+
+    animation: fadeInAnimate ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+.welcome{
+    color: rgb(71 85 105);
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.about{
+    font-size: large;
+    max-width: 500px;
+    margin: 1rem 2rem;
+    padding: 0rem 2rem;
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.feat{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.feature-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 2rem 0rem;
+}
+
+.features{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+}
+
+.feature{
+    height: 100%;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title{
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: fit-content;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    width: 25%;
+}
+
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+}
+
+.search-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-form{
+    margin:20px;
+    text-align: center;
+}
+
+.movie-input{
+    height: 35px;
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.movies{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 100px;
+}
+
+.movies a{
+    max-width: 220px;
+}
+
+@media (max-width: 1024px) {
+    .movies {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .movies {
+        grid-template-columns: repeat(3, 1fr);
+        gap : 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .movies {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        place-items: center;
+        gap : 10px;
+    }
+}
+
+.movie{
+    text-align: left;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    height : 380px;
+    max-width: 220px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.movie:hover {
+    transform: scale(1.02);
+}
+
+.movie img{
+    border-radius: 5px !important;
+    width: 100%;
+    height: 290px;
+}
+
+.movie h6{
+    padding: 10px;
+}
+
+.movie-page {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    background-image: linear-gradient(to top , rgba(0, 0, 0, 0.8), rgba(0,0,0,0.4), rgba(0, 0, 0, 0.1));
+}
+
+.backdrop{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index : -2;
+    filter: blur(16px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.movie-card {
+    display: flex;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.movie-poster {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-page h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 10px 0;
+
+}
+
+p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.profile{
+    margin: 15px 100px;
+}
+
+
+@media (max-width: 768px) {
+
+    .movie-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .movie-poster {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile{
+        margin: 5px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes fadeInAnimate {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.credits {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+.credits > div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.credits h3 {
+    font-size: 1.6rem;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.credits .actors,
+.credits .directors,
+.credits .producers,
+.credits .writers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.actor, .director, .producer, .writer {
+    text-align: center;
+    width: 150px;
+}
+
+.actor img, .director img, .producer img, .writer img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.actor:hover img, .director:hover img, .producer:hover img, .writer:hover img {
+    transform: scale(1.1);
+}
+
+.actor h5, .director h5, .producer h5, .writer h5 {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.actor h6, .director h6, .producer h6, .writer h6 {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .credits {
+        gap: 20px;
+    }
+
+    .credits > div {
+        gap: 10px;
+    }
+
+    .credits .actors,
+    .credits .directors,
+    .credits .producers,
+    .credits .writers {
+        gap: 10px;
+    }
+
+    .actor img, .director img, .producer img, .writer img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Main credits container */
+.moviecredits {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Grid container for the actors/movies */
+.creditmovies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    justify-items: center; /* Center items in the grid */
+}
+
+/* Styling for individual credit items */
+.credit {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+    overflow: hidden;
+    text-align: center;
+    width: 150px; /* Fixed width */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both scale and shadow */
+}
+
+.moviecredits h3 {
+    font-size: 1.6rem;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+/* Image styling */
+.credit img {
+    width: 100%; /* Make image fill the container */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Ensures the image scales correctly */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+/* Title styling */
+.credit h5 {
+    margin-top: 10px;
+    font-size: 14px; /* Reduced font size for better readability */
+    color: #333;
+    text-overflow: ellipsis; /* Truncate long titles */
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.2; /* Adjust line height for better spacing */
+    padding: 0 5px; /* Add padding for better visual spacing */
+}
+
+/* Hover effect for credits */
+.credit:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Darker shadow when hovering */
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+    .credit {
+        width: 130px; /* Adjust width for smaller screens */
+        height: auto; /* Allow flexible height on smaller screens */
+    }
+
+    .credit img {
+        height: 180px; /* Adjust image height */
+    }
+
+    .credit h5 {
+        font-size: 14px; /* Smaller title on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .credit {
+        width: 120px; /* Adjust for very small screens */
+    }
+
+    .credit img {
+        height: 160px; /* Smaller image for small screens */
+    }
+
+    .credit h5 {
+        font-size: 12px; /* Even smaller title */
+    }
+}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieGeek</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background-color: #1a202c;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 250px; /* Expanded width */
+            padding: 20px;
+            transition: width 0.3s; /* Smooth transition */
+        }
+        
+        nav .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        nav .logo svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0; /* Remove default padding */
+        }
+        
+        nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Add styles for the menu toggle */
+        .menu-toggle {
+            display: none; /* Hide checkbox */
+        }
+        
+        .toggle {
+            display: none; /* Hide the toggle button initially */
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Media query for both desktop and mobile */
+        @media (max-width: 768px), (min-width: 769px) {
+            nav {
+                width: 250px; /* Default expanded width */
+            }
+        
+            .collapsed {
+                width: 60px; /* Collapsed width */
+            }
+        
+            .collapsed ul {
+                display: none; /* Hide links in collapsed mode */
+            }
+        
+            .toggle {
+                display: block; /* Show toggle button on mobile and desktop */
+                color: white; /* Set toggle button color */
+            }
+        
+            /* When the checkbox is checked, expand the nav */
+            #menu-toggle:checked + .toggle {
+                display: block; /* Show toggle button */
+            }
+        
+            #menu-toggle:checked ~ ul {
+                display: block; /* Show links when checked */
+            }
+        
+            #menu-toggle:checked ~ nav {
+                width: 250px; /* Expanded width */
+            }
+        
+            #menu-toggle:not(:checked) ~ nav {
+                width: 60px; /* Collapsed width */
+            }
+        }
+               
+
+        .welcome {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        img{
+            background-color: #fff;
+            width: 25px;
+            height: 25px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: #f7fafc;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a5568;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2d3748;
+        }
+
+        .terms {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #718096;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            .welcome {
+                height: auto;
+                padding: 60px 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://www.svgrepo.com/show/67122/film-strip-of-cinema-symbol.svg" alt="">
+            <span>MovieGeek</span>
+        </div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
+        <label for="menu-toggle" class="toggle">☰</label>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#signin">Sign In</a></li>
+            <li><a href="#signup">Sign Up</a></li>
+        </ul>
+    </nav>
+    
+
+    <main>
+        <section class="welcome">
+            <h1>Welcome to MovieGeek</h1>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Build Your Profile</h3>
+                        <p>Create a personalized movie profile showcasing your favorite films and reviews.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Connect with Others</h3>
+                        <p>Discover and follow other movie enthusiasts with similar tastes.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Explore Movies</h3>
+                        <p>Search and discover new films based on your preferences and community recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About MovieGeek</h2>
+                <p>MovieGeek is the ultimate platform for movie lovers. We're passionate about bringing film enthusiasts together and helping you discover your next favorite movie.</p>
+            </div>
+        </section>
+
+        <section id="signin">
+            <div class="container">
+                <h2>Sign In</h2>
+                <form>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="signup">
+            <div class="container">
+                <h2>Sign Up</h2>
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p class="terms">By signing up, you agree to our Terms & Conditions</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

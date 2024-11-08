@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block body %}
+    <div>
+        <div class="profile">  
+            {% if not editable %}
+                <!-- Non-editable state: Display the user profile as plain text -->
+                <div class="profile-view">
+                    <h5><strong>Name:</strong> {{ user['name'] }}</h5>
+                    <p><strong>About:</strong> {{ user['about'] }}</p>
+                    {% if session['user_id'] == user['id'] %}
+                    <!-- Edit button -->
+                    <a href="/profile/edit" class="btn btn-outline-primary btn-sm">Edit</a>
+                    {% endif %}
+                </div>
+            {% else %}
+                <!-- Editable state: Show the form for editing -->
+                <form action="/profile/edit" method="POST">
+                    <!-- Name input -->
+                    <div class="form-group mb-2">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ user['name'] }}" required>
+                    </div>
+    
+                    <!-- About input -->
+                    <div class="form-group mb-2">
+                        <label for="about">About:</label>
+                        <textarea class="form-control" id="about" name="about" rows="4" required>{{ user['about'] }}</textarea>
+                    </div>
+    
+                    <!-- Save button -->
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            {% endif %}
+        </div>
+        <div class = "movies">
+            {% for movie in movies %}
+            <a href= "/movie/{{movie["movie_id"]}}">
+                <div class = "movie" >
+                    <img src="https://image.tmdb.org/t/p/original{{ movie["poster_path"] }}" alt="{{ movie["title"] }}">
+                    <h5>{{ movie["title"] }} {{ movie["year"]}}</h5>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body %}
