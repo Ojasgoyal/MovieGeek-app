@@ -20,13 +20,10 @@ app.config['CACHE_TYPE'] = 'simple'
 cache = Cache(app)
 Session(app)
 
-@app.cli.command('setup-db')
 def setup_database():
-    initialize_db()
-
-@app.cli.command('create-db')
-def setup_database():
-    create_tables()
+    if not os.path.exists('moviegeek.db'):
+        initialize_db ()
+        create_tables()
 
 @app.context_processor
 def inject_user():
@@ -295,4 +292,5 @@ def person_details(person_id):
         return render_template('persondata.html', persondata={})
 
 if __name__ == '__main__':
+    setup_database()
     app.run(debug=True)
