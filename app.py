@@ -260,11 +260,6 @@ def movie_details(movie_id):
         return render_template('movie.html', moviedata=[], formatted_date="", movie_ids=movie_ids)
     
 
-def format_biography(biography):
-    paragraphs = biography.split("\n\n")
-    return "\n\n".join(paragraphs[:2]) if len(paragraphs[0]) < 200 else biography
-
-
 @app.route('/person/<string:person_id>' , methods=['GET','POST'])
 @login_required
 def person_details(person_id):
@@ -286,7 +281,12 @@ def person_details(person_id):
     if len(movies) >= 21:
         movies = movies[:21]
     if persondata:
-        persondata["biography"] = format_biography(persondata["biography"])
+        biography = persondata["biography"].split("\n\n")
+        if len(biography[0]) > 200:
+            persondata["biography"] = biography[0]
+        else:
+            biography[1] = biography[1].split(".")
+            persondata["biography"] = biography[0] + "\n\n" + biography[1][0]
         return render_template('persondata.html', persondata=persondata , movies = movies)
     else:
         return render_template('persondata.html', persondata={})

@@ -11,7 +11,7 @@
             <img class = "movie-poster" src="https://image.tmdb.org/t/p/original{{ persondata.profile_path }}" alt="{{ persondata.name }}">
             <div class="movie-details">
                 <h1>{{ persondata["name"] }}</h1>
-                <p>{{ persondata["biography"][0:410] }}</p>
+                <p>{{ persondata["biography"] }}</p>
                 <p>Birthday: {{ persondata["birthday"] }}</p>
                 <p>Place of Birth: {{ persondata["place_of_birth"] }}</p>
             </div>
