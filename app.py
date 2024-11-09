@@ -282,11 +282,7 @@ def person_details(person_id):
         movies = movies[:21]
     if persondata:
         biography = persondata["biography"].split("\n\n")
-        if len(biography[0]) > 200:
-            persondata["biography"] = biography[0]
-        else:
-            biography[1] = biography[1].split(".")
-            persondata["biography"] = biography[0] + "\n\n" + biography[1][0]
+        persondata["biography"] = biography[0]
         return render_template('persondata.html', persondata=persondata , movies = movies)
     else:
         return render_template('persondata.html', persondata={})
