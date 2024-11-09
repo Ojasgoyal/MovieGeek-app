@@ -35,15 +35,17 @@
                 </form>
             {% endif %}
         </div>
-        <div class = "movies">
-            {% for movie in movies %}
-            <a href= "/movie/{{movie["movie_id"]}}">
-                <div class = "movie" >
-                    <img src="https://image.tmdb.org/t/p/original{{ movie["poster_path"] }}" alt="{{ movie["title"] }}">
-                    <h5>{{ movie["title"] }} {{ movie["year"]}}</h5>
-                </div>
-            </a>
-            {% endfor %}
+        <div class = "moviecredits">
+            <div class = "creditmovies">
+                {% for movie in movies %}
+                <a href= "/movie/{{movie["movie_id"]}}">
+                    <div class = "credit" >
+                        <img src="https://image.tmdb.org/t/p/original{{ movie["poster_path"] }}" alt="{{ movie["title"] }}">
+                        <h5>{{ movie["title"] }} {{ movie["year"]}}</h5>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock body %}

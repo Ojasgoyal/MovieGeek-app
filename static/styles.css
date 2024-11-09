@@ -135,7 +135,8 @@ a{
     font-weight: bold;
     font-size: 2rem;
 }
-.signup{
+/* General styles for the .signup container */
+.signup {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -152,19 +153,71 @@ a{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     gap: 1rem;
     width: 25%;
+    max-width: 400px; /* Limit the width on larger screens */
 }
 
-.signup-form{
+/* Form container */
+.signup-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
 }
 
-.form-field{
+/* Form field layout */
+.form-field {
     display: flex;
     flex-direction: column;
 }
+
+/* Make inputs take full width */
+.login input[type="text"], .login input[type="password"] , .signup input[type="text"], .signup input[type="password"]{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button styling */
+button {
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 600px) {
+    /* Center the signup container more effectively on smaller screens */
+    .signup {
+        width: 90%;  /* Take up more width on mobile */
+        position: relative; /* Remove absolute positioning for better responsiveness */
+        transform: none; /* Reset translation */
+        top: 0; /* Remove offset */
+        left: 0;
+        margin-top: 2rem; /* Add some top margin for spacing */
+    }
+
+    /* Adjust the title font size for mobile */
+    .title {
+        font-size: 1.5rem;
+    }
+
+    /* Adjust button size on smaller screens */
+    button {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+}
+
 
 .search-page{
     display: flex;
