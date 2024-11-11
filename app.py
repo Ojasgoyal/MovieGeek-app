@@ -7,7 +7,9 @@ from flask_caching import Cache
 from models import initialize_db , get_db_connection , register_user , get_user , create_tables , get_movies , addmovie , removemovie ,get_userbyid , edit_user
 from flask import Flask, request , render_template, jsonify , redirect, url_for , session ,flash
 from werkzeug.security import check_password_hash, generate_password_hash
+from dotenv import load_dotenv
 
+load_dotenv()
 TMDB_ACCESS_TOKEN = os.getenv('TMDB_ACCESS_TOKEN')
 
 app = Flask(__name__)
