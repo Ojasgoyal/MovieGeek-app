@@ -1,6 +1,6 @@
 # MovieGeek
 #### Video Demo: [Youtube](https://youtu.be/FeVJVkKBt1I)
-#### Link > [MovieGeek](themoviegeek.pythonanywhere.com)
+#### Link > [MovieGeek](https://themoviegeek.pythonanywhere.com)
 
 #### Description:
 MovieGeek is a personal movie database web application designed for users who want to explore movies, actors, and save their favorite movies in a personalized dashboard. The website integrates the **TMDB API** to fetch movie and person details, allowing users to search for movies and people, view detailed information, create user profiles, and browse other users' profiles. It is built using **Flask**, **SQLite3**, and other web technologies to provide a clean, interactive, and responsive user experience. This project was developed as part of the **CS50x** final project.
